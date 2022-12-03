@@ -1,10 +1,7 @@
 const gameValues = ['rock', 'paper', 'scissors'];
 const totalRounds = 5;
 
-let playEl = document.getElementById("playBtn");
-playEl.addEventListener("click", function () {
-    game();
-})
+game();
 
 let computerPlay = () => {
     let computerSelection = gameValues[Math.floor(Math.random() * gameValues.length)];

@@ -1,8 +1,6 @@
 const gameValues = ['rock', 'paper', 'scissors'];
 const totalRounds = 5;
 
-game();
-
 let computerPlay = () => {
     let computerSelection = gameValues[Math.floor(Math.random() * gameValues.length)];
     return computerSelection;
@@ -12,18 +10,12 @@ let game = () => {
     let playerWinCount = 0;
     let computerWinCount = 0;
 
+    console.log("===== Welcome To The Game =====")
+
     for (let i = 1; i <= totalRounds; i++) {
         let results = playRound();
         playerWinCount += results.playerWinCount;
         computerWinCount += results.computerWinCount;
-
-        document.getElementById("results").style.display = "block";
-
-        let playerEl = document.getElementById("player-data");
-        playerEl.innerHTML = `Your Score : ${playerWinCount}`;
-
-        let computerEl = document.getElementById("computer-data");
-        computerEl.innerHTML = `Opponent Score : ${computerWinCount}`;
 
         console.log("playerWinCount", playerWinCount);
         console.log("computerWinCount", computerWinCount);
@@ -32,12 +24,20 @@ let game = () => {
 
     if (playerWinCount > computerWinCount) {
         console.log(`All Rounds Results: You Won!`);
+        console.log(`Your Score : ${playerWinCount}`);
+        console.log(`Opponent Score : ${computerWinCount}`);
+
     }
     else if (playerWinCount < computerWinCount) {
         console.log(`All Rounds Results: You Lost!`);
+        console.log(`Your Score : ${playerWinCount}`);
+        console.log(`Opponent Score : ${computerWinCount}`);
+
     }
     else {
-        console.log(`All Rounds Results: You Draw!`);
+        console.log(`All Rounds Results: Draw! `);
+        console.log(`Your Score : ${playerWinCount}`);
+        console.log(`Opponent Score : ${computerWinCount}`);
     }
 
 }
@@ -104,6 +104,6 @@ let playRound = () => {
 
 }
 
-// game();
+game();
 
 

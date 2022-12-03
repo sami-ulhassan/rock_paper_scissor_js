@@ -1,5 +1,6 @@
 const gameValues = ['rock', 'paper', 'scissors'];
 const totalRounds = 5;
+let roundCount = 1;
 
 let computerPlay = () => {
     let computerSelection = gameValues[Math.floor(Math.random() * gameValues.length)];
@@ -12,16 +13,23 @@ let game = () => {
 
     console.log("===== Welcome To The Game =====")
 
-    for (let i = 1; i <= totalRounds; i++) {
+    for (roundCount = 1; roundCount <= totalRounds; roundCount++) {
         let results = playRound();
-        playerWinCount += results.playerWinCount;
-        computerWinCount += results.computerWinCount;
+        if (results) {
+            playerWinCount += results.playerWinCount;
+            computerWinCount += results.computerWinCount;
 
-        console.log("playerWinCount", playerWinCount);
-        console.log("computerWinCount", computerWinCount);
-        console.log(`Results for round ${i} = `, results);
+            console.log("Your Score: ", playerWinCount);
+            console.log("Computer Score: ", computerWinCount);
+            console.log(`Results for round: ${roundCount} = `, results);
+        }
+        else {
+            roundCount--;
+        }
+
     }
 
+    console.log(`==============================`);
     if (playerWinCount > computerWinCount) {
         console.log(`All Rounds Results: You Won!`);
         console.log(`Your Score : ${playerWinCount}`);
@@ -51,12 +59,12 @@ let playRound = () => {
     };
 
     let playerSelection = prompt("Please enter your choice: Rock, Paper or Scissors.");
-    if (!!playerSelection) {
+    if (playerSelection) {
 
-        playerSelection = playerSelection.toLowerCase();
+        playerSelection = playerSelection.toLowerCase().trim();
 
         if (playerSelection == gameValues[0] || playerSelection == gameValues[1] || playerSelection == gameValues[2]) {
-            console.log("user selection", playerSelection)
+            console.log("user selection =>", playerSelection)
 
             const computerSelection = computerPlay();
             console.log("computer selection =>", computerSelection)
@@ -98,8 +106,12 @@ let playRound = () => {
         }
         else {
             alert("Please enter correct option!");
-            location.reload();
+            return null;
         }
+    }
+    else {
+        alert("Please enter correct option!");
+        return null;
     }
 
 }

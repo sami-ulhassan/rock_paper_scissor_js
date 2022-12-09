@@ -10,5 +10,59 @@
 </head>
 <body>
 
+    <main class="container">
+
+        <div class="btn-container">
+            <button class="btn-primary" id="btnPlay">
+                Let's Play!
+            </button>
+            <div class="footer">
+               <img src="./assets/images/logo.svg" alt="RISE"> 
+               <p>
+                   Copyright © 2022 - RISE
+               </p> 
+            </div>
+        </div>
+
+        <div class="play-area d-none">
+            <button class="option-primary" id="rock" data-value="rock">
+                <img src="./assets/images/rock.png" data-value="rock" alt="Picture of a fist; Rock">
+                Rock
+            </button>
+            <button class="option-primary" id="paper" data-value="paper">
+                <img src="./assets/images/paper.png" data-value="paper" alt="Picture of an open hand; Paper">
+                Paper
+            </button>
+            <button class="option-primary" id="scissors" data-value="scissors">
+                <img src="./assets/images/scissors.png" data-value="scissors" alt="Picture of a victory sign; Scissors">
+                Scissors
+            </button>
+
+        </div>
+
+        <div class="controls-container d-none">
+            <button class="controls-primary-btn" id="home-btn">
+                <img src="./assets/images/go-back.png" alt="Go To Home">
+            </button>
+            <div class="round-result"></div> 
+            <button class="controls-primary-btn" id="next-round">
+                <img src="./assets/images/arrow-right.png" alt="Play Next Round">
+            </button>
+            <button class="controls-primary-btn d-none" id="view-results">
+                <img src="./assets/images/results.png" title="View Final Results" alt="Results">
+            </button>
+        </div>
+
+        <div class="final-results d-none">
+            <h3 class="score-title">Final Score</h3>
+            <h4 class="score"></h4>
+            <p class="score-text"></p>
+
+            <button class="controls-primary-btn play-again" id="play-again">
+                Play Again
+            </button>
+        </div>
+    </main>
+
 </body>
 </html>
